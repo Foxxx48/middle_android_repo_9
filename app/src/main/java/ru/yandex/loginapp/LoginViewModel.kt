@@ -1,5 +1,6 @@
 package ru.yandex.loginapp
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -29,7 +30,8 @@ class LoginViewModel : ViewModel() {
         }
     }
 
-    private fun isEmailValid(email: String): Boolean {
+    @VisibleForTesting
+    internal fun isEmailValid(email: String): Boolean {
         return Regex("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$").matches(email)
     }
 }
